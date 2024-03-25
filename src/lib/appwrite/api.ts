@@ -1,6 +1,6 @@
-import { INewPost, INewUser } from "@/types";
-import { account, appwriteConfig, avatars, databases, storage } from "./Config";
 import { ID, Query } from "appwrite";
+import { account, appwriteConfig, avatars, databases, storage } from "./Config";
+import { INewPost, INewUser } from "../../types";
 
 export async function createUserAccount(user: INewUser) {
   try {
@@ -215,7 +215,7 @@ export async function savePost(postId: string, userId: string) {
       appwriteConfig.savesCollectionId,
       ID.unique(),
       {
-        user: userId,
+        users: userId,
         post: postId,
       }
     );
